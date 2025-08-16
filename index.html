@@ -113,7 +113,7 @@
       transition: background-color 0.3s, color 0.3s;
       border-radius: 6px;
       cursor: pointer;
-      pointer-events: none;
+      /*pointer-events: none;*/
     }
 
     nav a:hover { background-color: #fff; color: #000; }
@@ -172,6 +172,31 @@ button:hover {
   background-color: #a8987a; /* Hover'da biraz koyu bej */
   color: #fff;              /* Yazı beyaz olur */
 }
+/* Menü responsive düzeltme */
+nav {
+  flex-wrap: wrap;
+  padding: 0.5rem;
+}
+
+nav a {
+  white-space: nowrap; /* Linkler alt alta bölünmesin */
+  pointer-events: none;
+}
+
+/* Mobil için daha iyi düzen */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  nav a {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.6rem;
+  }
+}
 
   </style>
 </head>
@@ -197,19 +222,19 @@ button:hover {
 
   <section id="hakkimda">
     <h1>Hakkımda</h1>
-    <p><p>Ben, Azize Ezer;</p>
+    <p>Ben, Azize Ezer;</p>
 <p>Çukurova Üniversitesi Bilgisayar Programcılığı 2. sınıf öğrencisiyim ve şu an Kıbrıs'ta, Gigabyte Limited adlı yazılım şirketinde yaz stajımı yapıyorum.</p>
 <p>Yazılıma olan ilgim bu stajla başladı ve bu alanda kendimi geliştirmeye olan tutkum her geçen gün artıyor.</p>
 <p>Her yeni kodu yazarken adeta bir bulmaca çözüyor gibi hissediyorum.</p>
 <p>Küçük dokunuşlarla etkili sonuçlar alabilmek, bu alana olan bağlılığımı pekiştiriyor.
 Başlangıçta karmaşık gibi görünse de, her yeni bilgiyi öğrendikçe duyduğum heyecan beni daha da motive ediyor.Takım çalışmasına da bireysel çalışmaya da uyum sağlayabileceğime inanıyorum.</p>
 <p>Kendimi henüz yolun başında görüyorum ancak öğrenmeye son derece açığım. 
- Kısa zamanda kendi projelerimi geliştirebilecek seviyeye ulaşacağıma eminim.</p></p>
+ Kısa zamanda kendi projelerimi geliştirebilecek seviyeye ulaşacağıma eminim.</p>
   </section>
 
   <section id="deneyimler">
     <h1>Deneyimler</h1>
-    <p><p>Frontend stajyeri</p>
+    <p>Frontend stajyeri</p>
 <p> Gigabyte Limited - Lefkoşa, KKTC</p>
 <p> 14 Temuz - 18 Ağustos 2025</p>
 <p>Yaz stajımı Gigabyte Limited adlı şirkette tamamlıyorum.</p>
@@ -225,7 +250,7 @@ karşılaşabileceğim kariyer fırsatlarını ve gelecekte beni nelerin bekledi
 
   <section id="hobiler">
     <h1>Hobiler</h1>
-    <p><p>Müzik dinlemek, güzel fotoğraflar çekmek ve kendimi geliştirmek hayatımda önemli bir yer tutuyor. </p>
+    <p>Müzik dinlemek, güzel fotoğraflar çekmek ve kendimi geliştirmek hayatımda önemli bir yer tutuyor. </p>
 <p>Sürekli yeni hobiler denemeyi seviyorum ve aklıma gelen konularda deneme tarzında serbest yazılar yazmak,
 düşüncelerimi ifade etmenin yanı sıra yaratıcılığımı da artırıyor.
 Ayrıca hoşuma giden şiirleri, etkileyici cümleleri ve film repliklerini biriktiriyorum. </p>
@@ -233,7 +258,7 @@ Ayrıca hoşuma giden şiirleri, etkileyici cümleleri ve film repliklerini biri
 <p>Uzun yürüyüşler yaparak hem bedenimi hem de zihnimi dinlendiriyorum; zaman zaman spor yapmak da günlük hayatımın bir parçası. </p>
 <p>En çok ise insanlarla hayat üzerine sohbet etmekten keyif alıyorum. Farklı bakış açılarını dinlemek ve deneyim paylaşmak bana ilham veriyor.</p>
 
-</p>
+
   </section>
 
   <section id="projeler">
@@ -250,9 +275,7 @@ Ayrıca hoşuma giden şiirleri, etkileyici cümleleri ve film repliklerini biri
 </section>
 
 
-</section>
 
-  </section>
 
 
 
