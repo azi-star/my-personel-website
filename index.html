@@ -1,0 +1,326 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Azize Ezer - Kişisel Web Sitesi</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #000;
+      background:
+        linear-gradient(135deg, rgba(255,182,193,0.3), rgba(255,182,193,0.3)),
+        url('websitearkaplan.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+    body { position: relative; padding-bottom: 60px; }
+
+    #intro {
+      position: fixed;
+      z-index: 9999;
+      top: 0; left: 0; right: 0; bottom: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      backdrop-filter: blur(5px);
+      padding: 2rem;
+      transition: opacity 1s ease, visibility 1s ease;
+    }
+
+    #intro-text {
+      text-align: center;
+      max-width: 700px;
+      margin-bottom: 2rem;
+    }
+
+    #intro-text p { margin: 1rem 0; }
+
+    #intro-text .hosgeldiniz {
+      font-weight: bold;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #000;
+    }
+
+    #intro-text .alt-metin {
+      font-style: italic;
+      font-size: 1.4rem;
+      line-height: 1.6;
+      color: #000;
+    }
+
+    #intro-text span {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.6s forwards;
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    #enter-site {
+      padding: 0.8rem 2rem;
+      font-size: 1.1rem;
+      background-color: #c9b89b;
+      border: none;
+      border-radius: 8px;
+      color: #4a3f2b;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    #enter-site:hover { background-color: #a2a07d; }
+
+    #intro.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 60px;
+      background: rgba(0,0,0,0.95);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      z-index: 10;
+    }
+
+    #logo { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; margin-right: 1rem; }
+
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+      transition: background-color 0.3s, color 0.3s;
+      border-radius: 6px;
+      cursor: pointer;
+      pointer-events: none;
+    }
+
+    nav a:hover { background-color: #fff; color: #000; }
+
+    section {
+      max-width: 900px;
+      margin: 80px auto 4rem auto;
+      padding: 2rem;
+      border-radius: 12px;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      color: #fff;
+      display: none;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+      scroll-margin-top: 100px;
+      padding-top: 80px;
+    }
+
+    section.active { display: block; }
+    section.show { opacity: 1; transform: translateY(0); }
+
+    h1 { font-size: 2.5rem; margin-bottom: 1rem; text-align: center; color: #fff; }
+    h2 { color: #ddd; }
+    p { line-height: 1.6; font-size: 1.1rem; margin-bottom: 1rem; color: #fff; }
+
+    section.active:first-of-type { margin-top: 100px; }
+    button { cursor: pointer; }
+
+    /* FOOTER */
+    footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: transparent;
+      text-align: center;
+      padding: 1rem 0;
+      font-size: 0.9rem;
+      color: #000;
+      font-weight: 300;
+    }
+
+    footer span { font-weight: 300; }
+button {
+  background-color: #c9b89b; /* Bej */
+  color: #000;              /* Yazı siyah */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #a8987a; /* Hover'da biraz koyu bej */
+  color: #fff;              /* Yazı beyaz olur */
+}
+
+  </style>
+</head>
+<body>
+
+  <div id="intro">
+    <div id="intro-text">
+      <p class="hosgeldiniz">HOŞ GELDİNİZ!</p>
+      <p class="alt-metin">Her bir satır her bir kod, öğrenme yolculuğumda attığım bir adımdır; gelişmeye ve üretmeye tutkuyla devam ediyorum.</p>
+    </div>
+    <button id="enter-site">Siteye Giriş</button>
+  </div>
+
+  <nav>
+    <img src="azize.png" alt="Logo" id="logo" />
+    <a href="#" data-target="hakkimda">Hakkımda</a>
+    <a href="#" data-target="deneyimler">Deneyimler</a>
+    <a href="#" data-target="hobiler">Hobiler</a>
+    <a href="#" data-target="projeler">Projeler</a>
+    <a href="#" data-target="iletisim">İletişim</a>
+    <a href="#" data-target="cv">CV</a>
+  </nav>
+
+  <section id="hakkimda">
+    <h1>Hakkımda</h1>
+    <p><p>Ben, Azize Ezer;</p>
+<p>Çukurova Üniversitesi Bilgisayar Programcılığı 2. sınıf öğrencisiyim ve şu an Kıbrıs'ta, Gigabyte Limited adlı yazılım şirketinde yaz stajımı yapıyorum.</p>
+<p>Yazılıma olan ilgim bu stajla başladı ve bu alanda kendimi geliştirmeye olan tutkum her geçen gün artıyor.</p>
+<p>Her yeni kodu yazarken adeta bir bulmaca çözüyor gibi hissediyorum.</p>
+<p>Küçük dokunuşlarla etkili sonuçlar alabilmek, bu alana olan bağlılığımı pekiştiriyor.
+Başlangıçta karmaşık gibi görünse de, her yeni bilgiyi öğrendikçe duyduğum heyecan beni daha da motive ediyor.Takım çalışmasına da bireysel çalışmaya da uyum sağlayabileceğime inanıyorum.</p>
+<p>Kendimi henüz yolun başında görüyorum ancak öğrenmeye son derece açığım. 
+ Kısa zamanda kendi projelerimi geliştirebilecek seviyeye ulaşacağıma eminim.</p></p>
+  </section>
+
+  <section id="deneyimler">
+    <h1>Deneyimler</h1>
+    <p><p>Frontend stajyeri</p>
+<p> Gigabyte Limited - Lefkoşa, KKTC</p>
+<p> 14 Temuz - 18 Ağustos 2025</p>
+<p>Yaz stajımı Gigabyte Limited adlı şirkette tamamlıyorum.</p>
+<p> Staj sürecimde temel olarak HTML, CSS ve JavaScript kullanarak kişisel bir websitesi geliştirmem istendi</p>
+<p>Bu projede hem yazılım temellerimi güçlendirdim hem CSS ile sayfa tasarımını nasıl şekillendireceğimi öğrendim hem de yaratıcılığımı ortaya koydum.</p>
+ <p>Projemde bireysel çalıştım ve karşılaştığım bilmediğim konular için detaylı ve doğru araştırma yaparak çözüm bulmam gerekti.</p>
+<p>Bu süreç bana bilmediğim bir konuyu öğrenmek için illa bir uzmana ihtiyaç duymamam gerektiğini öğretti ve kendi başıma öğrenme becerilerimi geliştirdi.</p>
+<p> Şirkette olmak ve oradaki kişilerle sohbet etmek bana hayata ve mesleğe karşı farklı bakış açıları kazandırdı. Yazılım alanında nasıl ilerleyebileceğimi,
+karşılaşabileceğim kariyer fırsatlarını ve gelecekte beni nelerin beklediğini daha iyi anlama fırsatı buldum.</p>
+<p> Bu deneyim sayesinde yalnızca teknik beceriler değil aynı zamanda sorumluluk alma ve kendi kendine öğrenme alışkanlıkları da kazandım </p>
+
+  </section>
+
+  <section id="hobiler">
+    <h1>Hobiler</h1>
+    <p><p>Müzik dinlemek, güzel fotoğraflar çekmek ve kendimi geliştirmek hayatımda önemli bir yer tutuyor. </p>
+<p>Sürekli yeni hobiler denemeyi seviyorum ve aklıma gelen konularda deneme tarzında serbest yazılar yazmak,
+düşüncelerimi ifade etmenin yanı sıra yaratıcılığımı da artırıyor.
+Ayrıca hoşuma giden şiirleri, etkileyici cümleleri ve film repliklerini biriktiriyorum. </p>
+<p>Basit yemek tarifleri öğrenip denemeyi seviyorum ve farklı dilleri keşfetmek de ilgimi çeken başka bir alan.</p>
+<p>Uzun yürüyüşler yaparak hem bedenimi hem de zihnimi dinlendiriyorum; zaman zaman spor yapmak da günlük hayatımın bir parçası. </p>
+<p>En çok ise insanlarla hayat üzerine sohbet etmekten keyif alıyorum. Farklı bakış açılarını dinlemek ve deneyim paylaşmak bana ilham veriyor.</p>
+
+</p>
+  </section>
+
+  <section id="projeler">
+  <h1>Projeler</h1>
+  <p>Website Projem : <a href="https://ezer-teknik.vercel.app" target="_blank" style="color: #c9b89b; text-decoration: underline;">ezer-teknik.vercel.app</a></p>
+</section>
+
+
+ <section id="iletisim">
+  <h1>İletişim</h1>
+  <p>Mail : <a href="mailto:azizee.ezerr1@gmail.com" style="color: #c9b89b; text-decoration: underline;">azizee.ezerr1@gmail.com</a></p>
+  <p>Instagram : <a href="https://www.instagram.com/azizee.ezerr" target="_blank" style="color: #c9b89b; text-decoration: underline;">azizee.ezerr</a></p>
+  <p>Instagram : <a href="https://www.instagram.com/azi.lab" target="_blank" style="color: #c9b89b; text-decoration: underline;">azi.lab</a></p>
+</section>
+
+
+</section>
+
+  </section>
+
+
+
+
+  <section id="cv">
+  <h1>CV</h1>
+
+  <!-- CV Fotoğrafı -->
+  <img src="cv_foto.jpg" alt="Azize Ezer CV" 
+       style="max-width: 250px; height: auto; margin-bottom: 1rem; border-radius: 8px; display:block; margin-left:auto; margin-right:auto;">
+
+  <!-- CV Görüntüleme Butonu -->
+  <a href="azize_cv.pdf" target="_blank" style="text-decoration:none;">
+    <button>CV'yi Görüntüle</button>
+  </a>
+
+  <!-- CV İndirme Butonu -->
+  <a href="azize_cv.pdf" download style="text-decoration:none; margin-left: 1rem;">
+    <button>CV'yi İndir</button>
+  </a>
+</section>
+
+
+
+
+
+
+  <!-- FOOTER -->
+  <footer>
+    <span>©</span> Azize EZER | Tüm Hakları Saklıdır
+  </footer>
+
+  <script>
+    const intro = document.getElementById('intro');
+    const enterBtn = document.getElementById('enter-site');
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('nav a');
+
+    // Giriş tuşu
+    enterBtn.addEventListener('click', () => {
+      intro.classList.add('hidden');
+      setTimeout(() => {
+        intro.style.display = 'none';
+        const firstSection = document.getElementById('hakkimda');
+        firstSection.style.display = 'block';
+        firstSection.classList.add('active');
+        setTimeout(()=>firstSection.classList.add('show'), 10);
+        navLinks.forEach(link=>link.style.pointerEvents='auto');
+      }, 1000);
+    });
+
+    // Menü tıklamaları
+    navLinks.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const targetId = link.getAttribute('data-target');
+        sections.forEach(sec => {
+          sec.classList.remove('active','show');
+          sec.style.display = 'none';
+          if(sec.id===targetId){
+            sec.style.display='block';
+            sec.classList.add('active');
+            setTimeout(()=>sec.classList.add('show'),10);
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
